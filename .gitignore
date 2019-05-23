@@ -32,34 +32,9 @@
 # software source files:
 ### tbd
 
-######## Quartus II binary files
-
-# hardware binary files
-### project_name.sof SRAM Object File
-
-# software binary files
-
-/*
-!/*.gitignore
-##
-!*.qpf
-!*.qsf
-!*.qws
-!*.bdf
-!*.vhd
-!*.v
-!*.ptf
-!*.bsf
-!**/class.ptf
-!*.tbd
-!*.sof
-## tbd
-
-!*.tcl
-
 ### ModelSim ###
 # ignore ModelSim generated files and directories (temp files and so on)
-[_@]*
+#[_@]*
 
 # ignore compilation output of ModelSim
 *.mti
