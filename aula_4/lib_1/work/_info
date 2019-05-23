@@ -1,0 +1,44 @@
+m255
+K3
+13
+cModel Technology
+Z0 dX:\psi3451\aula_4\lib_1
+Pprocedure_pack
+Z1 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+Z2 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z3 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z4 w1553197132
+Z5 dX:\psi3451\aula_4\ng_4
+Z6 8X:/psi3451/aula_4/lib_1/procedure_pack.vhd
+Z7 FX:/psi3451/aula_4/lib_1/procedure_pack.vhd
+l0
+L17
+V1d8WXK;T;_ZCJD]3=hYGO2
+!s100 CB8nWNLin`SaLBPU8_KRf0
+Z8 OL;C;10.1d;51
+32
+b1
+!i10b 1
+Z9 !s108 1553197149.188000
+Z10 !s90 -reportprogress|300|-work|procedure_lib|X:/psi3451/aula_4/lib_1/procedure_pack.vhd|
+Z11 !s107 X:/psi3451/aula_4/lib_1/procedure_pack.vhd|
+Z12 o-work procedure_lib
+Z13 tExplicit 1
+Bbody
+DPx4 work 14 procedure_pack 0 22 1d8WXK;T;_ZCJD]3=hYGO2
+R1
+R2
+R3
+l0
+L21
+VHDh`cZ>S9dSR@1M4h0PNz1
+!s100 7gDE5<=m;T3zdfaRkGSa<0
+R8
+32
+!i10b 1
+R9
+R10
+R11
+R12
+R13
+nbody

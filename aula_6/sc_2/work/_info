@@ -1,0 +1,158 @@
+m255
+K3
+13
+cModel Technology
+Z0 dX:\psi3451\aula_6\sc_2
+T_opt
+VM6?9=GaE92W?2Db5a29fE1
+04 17 4 work tb_step_counter_2 test 1
+=1-782bcbbffce6-5ca65877-0-1f24
+o-quiet -auto_acc_if_foreign -work work +acc
+n@_opt
+OL;O;10.1d;51
+Eclock_generator
+Z1 w1554334768
+Z2 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z3 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z4 dX:\psi3451\aula_6\sc_2
+Z5 8X:/psi3451/aula_6/sc_2/clock_generator.vhd
+Z6 FX:/psi3451/aula_6/sc_2/clock_generator.vhd
+l0
+L4
+V3P3mhojPLDXS_RGP:fFDN0
+Z7 OL;C;10.1d;51
+32
+Z8 !s108 1554404735.798000
+Z9 !s90 -reportprogress|300|-work|work|X:/psi3451/aula_6/sc_2/clock_generator.vhd|
+Z10 !s107 X:/psi3451/aula_6/sc_2/clock_generator.vhd|
+Z11 o-work work
+Z12 tExplicit 1
+!s100 ^PiTE4bZLjdOi^2fic@eO3
+!i10b 1
+Atest
+R2
+R3
+DEx4 work 15 clock_generator 0 22 3P3mhojPLDXS_RGP:fFDN0
+l20
+L18
+VX><FXY_ij:4f8;R?kzOY:3
+R7
+32
+R8
+R9
+R10
+R11
+R12
+!s100 SToQ2c^?6KcNA1jh`6Gi92
+!i10b 1
+Estep_counter_2
+Z13 w1554334778
+Z14 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+R2
+R3
+R4
+Z15 8X:/psi3451/aula_6/sc_2/step_counter_2.vhd
+Z16 FX:/psi3451/aula_6/sc_2/step_counter_2.vhd
+l0
+L18
+V<6ijTfhlHffgP@;IF4maL3
+R7
+32
+Z17 !s108 1554404737.885000
+Z18 !s90 -reportprogress|300|-work|work|X:/psi3451/aula_6/sc_2/step_counter_2.vhd|
+Z19 !s107 X:/psi3451/aula_6/sc_2/step_counter_2.vhd|
+R11
+R12
+!s100 R?]?[eeY:M=Kh;jUk6hkg3
+!i10b 1
+Aarch
+R14
+R2
+R3
+DEx4 work 14 step_counter_2 0 22 <6ijTfhlHffgP@;IF4maL3
+l43
+L35
+V::gO?@o]U?6EX9XgKoPgG1
+R7
+32
+R17
+R18
+R19
+R11
+R12
+!s100 WQc9>lh^2bbkn18e0Mi_U0
+!i10b 1
+Estimuli_step_counter_2
+Z20 w1554405483
+R14
+R2
+R3
+R4
+Z21 8X:/psi3451/aula_6/sc_2/stimuli_step_counter_2.vhd
+Z22 FX:/psi3451/aula_6/sc_2/stimuli_step_counter_2.vhd
+l0
+L5
+Vz98AiJ?j=2ALCa57]9R;X2
+R7
+32
+Z23 !s108 1554405485.806000
+Z24 !s90 -reportprogress|300|-work|work|X:/psi3451/aula_6/sc_2/stimuli_step_counter_2.vhd|
+Z25 !s107 X:/psi3451/aula_6/sc_2/stimuli_step_counter_2.vhd|
+R11
+R12
+!s100 n]UhULlm09iQ<<dPRonz`0
+!i10b 1
+Atest
+R14
+R2
+R3
+DEx4 work 22 stimuli_step_counter_2 0 22 z98AiJ?j=2ALCa57]9R;X2
+l36
+L21
+VX<M:TdE[jXz_[GSmHfadG2
+R7
+32
+R23
+R24
+R25
+R11
+R12
+!s100 N:H<OQI?J71ANk4Ck`>nC0
+!i10b 1
+Etb_step_counter_2
+Z26 w1554334794
+R14
+R2
+R3
+R4
+Z27 8X:/psi3451/aula_6/sc_2/tb_step_counter_2.vhd
+Z28 FX:/psi3451/aula_6/sc_2/tb_step_counter_2.vhd
+l0
+L6
+VE=mgM9a4@nehXgm;k00jL2
+R7
+32
+Z29 !s108 1554404913.510000
+Z30 !s90 -reportprogress|300|-work|work|X:/psi3451/aula_6/sc_2/tb_step_counter_2.vhd|
+Z31 !s107 X:/psi3451/aula_6/sc_2/tb_step_counter_2.vhd|
+R11
+R12
+!s100 g8A7m^?D__?>zmabh=k=>1
+!i10b 1
+Atest
+R14
+R2
+R3
+DEx4 work 17 tb_step_counter_2 0 22 E=mgM9a4@nehXgm;k00jL2
+l48
+L12
+V31D32PR^@D]]YRchBi9TN3
+R7
+32
+R29
+R30
+R31
+R11
+R12
+!s100 PL@Q1YO=B>lNAOz_K@;k=2
+!i10b 1

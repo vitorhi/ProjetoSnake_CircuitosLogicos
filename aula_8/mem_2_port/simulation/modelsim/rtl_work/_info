@@ -1,0 +1,86 @@
+m255
+K3
+13
+cModel Technology
+Z0 dX:\psi3451\aula_8\mem_2_port\simulation\modelsim
+Emem_2_port
+Z1 w1556826237
+Z2 DPx4 ieee 14 std_logic_1164 0 22 GH1=`jDDBJ=`LM;:Ak`kf2
+Z3 8X:/psi3451/aula_8/mem_2_port/mem_2_port.vhd
+Z4 FX:/psi3451/aula_8/mem_2_port/mem_2_port.vhd
+l0
+L42
+V5jQ:Q063Vh<Bele;`Qz^V2
+!s100 ES>:b@Inb?1fLUJF=bHTP1
+Z5 OV;C;6.5b;42
+31
+Z6 o-93 -work work -O0
+Z7 tExplicit 1
+Asyn
+R2
+Z8 DEx4 work 10 mem_2_port 0 22 5jQ:Q063Vh<Bele;`Qz^V2
+l108
+L59
+Z9 V3DhoPQlfSj`mg7j0=05g21
+Z10 !s100 P@O268oI`5DNz0>b=WcDf1
+R5
+31
+Z11 Mx1 4 ieee 14 std_logic_1164
+R6
+R7
+Estimuli_mem_2_port
+Z12 w1556828397
+Z13 DPx4 ieee 11 numeric_std 0 22 =NSdli^?T5OD8;4F<blj<3
+R2
+Z14 8X:/psi3451/aula_8/mem_2_port/stimuli_mem_2-port.vhd
+Z15 FX:/psi3451/aula_8/mem_2_port/stimuli_mem_2-port.vhd
+l0
+L5
+VX?^U4HBkIdlDezKz7neM70
+R5
+31
+R6
+R7
+!s100 eW`m=7m7=ifbTWP:o^[]d1
+Atest
+R13
+R2
+DEx4 work 18 stimuli_mem_2_port 0 22 X?^U4HBkIdlDezKz7neM70
+l42
+L28
+V6[^a9D:2N?`k]ilCYBo7K2
+R5
+31
+Z16 Mx2 4 ieee 14 std_logic_1164
+Z17 Mx1 4 ieee 11 numeric_std
+R6
+R7
+!s100 lTV`7mGRk>S2SLMIKMABo2
+Etestbench_mem_2_port
+Z18 w1556828444
+R13
+R2
+Z19 8X:/psi3451/aula_8/mem_2_port/testbench_mem_2-port.vhd
+Z20 FX:/psi3451/aula_8/mem_2_port/testbench_mem_2-port.vhd
+l0
+L5
+V76B3FWRJeZU]E52`Sc5Y91
+R5
+31
+R6
+R7
+!s100 69oC4f:OJCB^IcXLiZ>Gf2
+Atest
+R13
+R2
+DEx4 work 20 testbench_mem_2_port 0 22 76B3FWRJeZU]E52`Sc5Y91
+l56
+L11
+VUd4jzl>_oJ0@Q;0?_BZOA3
+R5
+31
+R16
+R17
+R6
+R7
+!s100 B3AD2[@=_DV7CzNb:CB3d2

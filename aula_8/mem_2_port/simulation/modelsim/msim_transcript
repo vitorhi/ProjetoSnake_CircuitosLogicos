@@ -1,0 +1,68 @@
+# Reading C:/altera/91/modelsim_ase/tcl/vsim/pref.tcl 
+# do mem_2_port_run_msim_rtl_vhdl.do 
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Copying C:\altera\91\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied C:\altera\91\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vcom -93 -work work {X:/psi3451/aula_8/mem_2_port/mem_2_port.vhd}
+# Model Technology ModelSim ALTERA vcom 6.5b Compiler 2009.10 Oct  1 2009
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Compiling entity mem_2_port
+# -- Compiling architecture syn of mem_2_port
+# 
+# vcom -93 -work work {X:/psi3451/aula_8/mem_2_port/testbench_mem_2-port.vhd}
+# Model Technology ModelSim ALTERA vcom 6.5b Compiler 2009.10 Oct  1 2009
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Compiling entity testbench_mem_2_port
+# -- Compiling architecture test of testbench_mem_2_port
+# ** Warning: [4] X:/psi3451/aula_8/mem_2_port/testbench_mem_2-port.vhd(33): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# vcom -93 -work work {X:/psi3451/aula_8/mem_2_port/stimuli_mem_2-port.vhd}
+# Model Technology ModelSim ALTERA vcom 6.5b Compiler 2009.10 Oct  1 2009
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Compiling entity stimuli_mem_2_port
+# ** Warning: [4] X:/psi3451/aula_8/mem_2_port/stimuli_mem_2-port.vhd(9): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# -- Compiling architecture test of stimuli_mem_2_port
+# ** Warning: [4] X:/psi3451/aula_8/mem_2_port/stimuli_mem_2-port.vhd(33): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# vcom -93 -work work {X:/psi3451/aula_8/mem_2_port/mem_2_port.vhd}
+# Model Technology ModelSim ALTERA vcom 6.5b Compiler 2009.10 Oct  1 2009
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Compiling entity mem_2_port
+# -- Compiling architecture syn of mem_2_port
+# 
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneii -L rtl_work -L work -voptargs="+acc" testbench_mem_2_port
+# vsim -L altera -L lpm -L sgate -L altera_mf -L altera_lnsim -L cycloneii -L rtl_work -L work -voptargs=\"+acc\" -t 1ps testbench_mem_2_port 
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.testbench_mem_2_port(test)
+# Loading work.mem_2_port(syn)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading std.textio(body)
+# Loading altera_mf.altera_common_conversion(body)
+# Loading altera_mf.altera_device_families(body)
+# Loading altera_mf.altsyncram(translated)
+# Loading work.stimuli_mem_2_port(test)
+# ** Error: (vsim-19) Failed to access library 'altera_lnsim' at "altera_lnsim".
+# No such file or directory. (errno = ENOENT)
+# ** Warning: (vsim-3473) Component instance "clock : clock_generator" is not bound.
+#    Time: 0 ps  Iteration: 0  Region: /testbench_mem_2_port/stim  File: X:/psi3451/aula_8/mem_2_port/stimuli_mem_2-port.vhd
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body
+# run 100 ns

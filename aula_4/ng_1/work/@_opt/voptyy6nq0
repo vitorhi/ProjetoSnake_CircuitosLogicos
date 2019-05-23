@@ -1,0 +1,49 @@
+m255
+K3
+13
+cModel Technology
+Z0 dX:\psi3451\aula_4\ng_1
+T_opt
+V76C65kQ[B7N6amh;oKoE:2
+04 14 4 work num_gen_direct arch 1
+=1-782bcbbffce6-5c93c494-312-1f34
+o-quiet -auto_acc_if_foreign -work work +acc
+n@_opt
+OL;O;10.1d;51
+Enum_gen_direct
+Z1 w1553187749
+Z2 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+Z3 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z4 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z5 dX:\psi3451\aula_4\ng_1
+Z6 8X:/psi3451/aula_4/ng_1/num_gen_1.vhd
+Z7 FX:/psi3451/aula_4/ng_1/num_gen_1.vhd
+l0
+L18
+V4n_lW=?mVOC[GUAJC7:Vn0
+Z8 OL;C;10.1d;51
+32
+Z9 !s108 1553187902.293000
+Z10 !s90 -reportprogress|300|-work|work|X:/psi3451/aula_4/ng_1/num_gen_1.vhd|
+Z11 !s107 X:/psi3451/aula_4/ng_1/num_gen_1.vhd|
+Z12 o-work work
+Z13 tExplicit 1
+!s100 =k^L@aROi@7V8KNkh9V?@0
+!i10b 1
+Aarch
+R2
+R3
+R4
+DEx4 work 14 num_gen_direct 0 22 4n_lW=?mVOC[GUAJC7:Vn0
+l44
+L33
+V8DRPBnh6;LWjWh<`oU4DQ2
+R8
+32
+R9
+R10
+R11
+R12
+R13
+!s100 FncCM5=R[RzaPVazG`5<k1
+!i10b 1

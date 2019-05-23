@@ -1,0 +1,30 @@
+|fsm_main
+clk => STATE~1.DATAIN
+res => STATE.OUTPUTSELECT
+res => STATE.OUTPUTSELECT
+res => STATE.OUTPUTSELECT
+res => STATE.OUTPUTSELECT
+res => STATE.OUTPUTSELECT
+cnt_rdy => Selector2.IN3
+cnt_rdy => Selector1.IN1
+cmp_food_flag => NEXT_STATE.OUTPUTSELECT
+cmp_food_flag => NEXT_STATE.OUTPUTSELECT
+cmp_food_flag => NEXT_STATE.DATAA
+fsm_i_done => Selector0.IN4
+fsm_i_done => NEXT_STATE.INIT_ATIVATION.DATAB
+fsm_f_done => Selector1.IN4
+fsm_f_done => Selector0.IN1
+fsm_s_done => NEXT_STATE.DATAA
+fsm_s_done => NEXT_STATE.DATAA
+fsm_s_game_over => NEXT_STATE.OUTPUTSELECT
+fsm_s_game_over => NEXT_STATE.OUTPUTSELECT
+fsm_s_game_over => NEXT_STATE.OUTPUTSELECT
+fsm_s_game_over => Selector3.IN3
+con_sel.INIT_CON <= con_sel.INIT_CON.DB_MAX_OUTPUT_PORT_TYPE
+con_sel.FOOD_CON <= con_sel.FOOD_CON.DB_MAX_OUTPUT_PORT_TYPE
+con_sel.STEP_CON <= con_sel.DB_MAX_OUTPUT_PORT_TYPE
+fsm_i_start <= fsm_i_start.DB_MAX_OUTPUT_PORT_TYPE
+fsm_f_start <= fsm_f_start.DB_MAX_OUTPUT_PORT_TYPE
+fsm_s_start <= fsm_s_start.DB_MAX_OUTPUT_PORT_TYPE
+
+

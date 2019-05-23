@@ -1,0 +1,47 @@
+m255
+K3
+13
+cModel Technology
+Z0 dX:\psi3451\aula_2\fa_1m
+T_opt
+ViCE^<<B>TEcOjngzA][R?2
+04 13 8 work full_adder_1m dataflow 1
+=1-782bcbbffd2c-5c782705-237-1960
+o-quiet -auto_acc_if_foreign -work work +acc
+n@_opt
+OL;O;10.1d;51
+Efull_adder_1m
+Z1 w1551378125
+Z2 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z3 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z4 dX:\psi3451\aula_2\fa_1m
+Z5 8X:/psi3451/aula_2/fa_1m/full_adder_1_m.vhd
+Z6 FX:/psi3451/aula_2/fa_1m/full_adder_1_m.vhd
+l0
+L4
+V2K;AAz_FeO:i_52KQ^nQ<0
+Z7 OL;C;10.1d;51
+32
+Z8 !s108 1551378138.482000
+Z9 !s90 -reportprogress|300|-work|work|X:/psi3451/aula_2/fa_1m/full_adder_1_m.vhd|
+Z10 !s107 X:/psi3451/aula_2/fa_1m/full_adder_1_m.vhd|
+Z11 o-work work
+Z12 tExplicit 1
+!s100 Om1CHBBV?bQQnF1Y]_hXj3
+!i10b 1
+Adataflow
+R2
+R3
+DEx4 work 13 full_adder_1m 0 22 2K;AAz_FeO:i_52KQ^nQ<0
+l19
+L15
+VP7[O8@W:XFjQKHk3?OEln0
+!s100 >dJX04fO9:SnmL5?7]J?L1
+R7
+32
+R8
+R9
+R10
+R11
+R12
+!i10b 1

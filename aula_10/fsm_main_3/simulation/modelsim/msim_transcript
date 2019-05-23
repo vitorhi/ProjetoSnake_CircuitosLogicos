@@ -1,0 +1,71 @@
+# Reading C:/altera/91/modelsim_ase/tcl/vsim/pref.tcl 
+# Updating type .v file registration. 
+# Updating type .wlf file registration. 
+# Updating type .mpf file registration. 
+# do fsm_main_run_msim_rtl_vhdl.do 
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Copying C:\altera\91\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# ** Warning: Copied C:\altera\91\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
+#          Updated modelsim.ini.
+# 
+# vcom -93 -work work {X:/psi3451/aula_10/fsm_main_3/fonte/fsm_main.vhd}
+# Model Technology ModelSim ALTERA vcom 6.5b Compiler 2009.10 Oct  1 2009
+# -- Loading package standard
+# -- Compiling package my_package
+# -- Loading package std_logic_1164
+# -- Loading package std_logic_arith
+# -- Loading package std_logic_unsigned
+# -- Loading package my_package
+# -- Compiling entity fsm_main
+# -- Compiling architecture arch of fsm_main
+# 
+# vcom -93 -work work {X:/psi3451/aula_10/fsm_main_3/tb1/clock_generator.vhd}
+# Model Technology ModelSim ALTERA vcom 6.5b Compiler 2009.10 Oct  1 2009
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Compiling entity clock_generator
+# ** Warning: [4] X:/psi3451/aula_10/fsm_main_3/tb1/clock_generator.vhd(7): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# -- Compiling architecture test of clock_generator
+# vcom -93 -work work {X:/psi3451/aula_10/fsm_main_3/tb1/stimuli_fsm_main.vhd}
+# Model Technology ModelSim ALTERA vcom 6.5b Compiler 2009.10 Oct  1 2009
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Compiling entity stimuli_fsm_main
+# ** Warning: [4] X:/psi3451/aula_10/fsm_main_3/tb1/stimuli_fsm_main.vhd(9): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# -- Compiling architecture test of stimuli_fsm_main
+# ** Warning: [4] X:/psi3451/aula_10/fsm_main_3/tb1/stimuli_fsm_main.vhd(34): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# vcom -93 -work work {X:/psi3451/aula_10/fsm_main_3/tb1/testbench_fsm_main.vhd}
+# Model Technology ModelSim ALTERA vcom 6.5b Compiler 2009.10 Oct  1 2009
+# -- Loading package standard
+# -- Loading package std_logic_1164
+# -- Loading package numeric_std
+# -- Loading package my_package
+# -- Compiling entity tb_fsm_main_seq_2
+# -- Compiling architecture test of tb_fsm_main_seq_2
+# ** Warning: [4] X:/psi3451/aula_10/fsm_main_3/tb1/testbench_fsm_main.vhd(36): (vcom-1207) An abstract literal and an identifier must have a separator between them.
+# 
+# vsim -t 1ps -L altera -L lpm -L sgate -L altera_mf -L cycloneii -L rtl_work -L work -voptargs="+acc" tb_fsm_main_seq_2
+# vsim -L altera -L lpm -L sgate -L altera_mf -L cycloneii -L rtl_work -L work -voptargs=\"+acc\" -t 1ps tb_fsm_main_seq_2 
+# Loading std.standard
+# Loading ieee.std_logic_1164(body)
+# Loading ieee.numeric_std(body)
+# Loading work.my_package
+# Loading work.tb_fsm_main_seq_2(test)
+# Loading ieee.std_logic_arith(body)
+# Loading ieee.std_logic_unsigned(body)
+# Loading work.fsm_main(arch)
+# Loading work.stimuli_fsm_main(test)
+# Loading work.clock_generator(test)
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body
+# run 2 us

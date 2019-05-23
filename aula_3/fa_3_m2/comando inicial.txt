@@ -1,0 +1,1 @@
+cd X:/psi3451/aula_3/fa_3_m2;vlib work;vmap work work;vcom -reportprogress 300 -work work X:/psi3451/aula_3/fa_3/full_adder_3_m2.vhd;vsim -gui work.full_adder;vsim -gui -voptargs=+acc work.full_adder;

@@ -1,0 +1,49 @@
+m255
+K3
+13
+cModel Technology
+Z0 dX:\psi3451\aula_4\ng_2
+T_opt
+VZRd8QA;GT=LJh45kU;^:?2
+04 21 4 work num_gen_with_function arch 1
+=1-782bcbbffce6-5c93d0c8-23e-19c4
+o-quiet -auto_acc_if_foreign -work work +acc
+n@_opt
+OL;O;10.1d;51
+Enum_gen_with_function
+Z1 w1553191076
+Z2 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+Z3 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z4 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z5 dX:\psi3451\aula_4\ng_2
+Z6 8X:/psi3451/aula_4/ng_2/num_gen_2.vhd
+Z7 FX:/psi3451/aula_4/ng_2/num_gen_2.vhd
+l0
+L18
+V8FIF7:MHLj27JYbdb41Ib0
+Z8 OL;C;10.1d;51
+32
+Z9 !s108 1553191096.692000
+Z10 !s90 -reportprogress|300|-work|work|X:/psi3451/aula_4/ng_2/num_gen_2.vhd|
+Z11 !s107 X:/psi3451/aula_4/ng_2/num_gen_2.vhd|
+Z12 o-work work
+Z13 tExplicit 1
+!s100 D;PT>3LN:dUAo2GFdXo;31
+!i10b 1
+Aarch
+R2
+R3
+R4
+DEx4 work 21 num_gen_with_function 0 22 8FIF7:MHLj27JYbdb41Ib0
+l64
+L33
+V`VLY3zNBaXil4AgT1BR6B2
+R8
+32
+R9
+R10
+R11
+R12
+R13
+!s100 hJ1:g<BDCFWIWO5knNTN53
+!i10b 1

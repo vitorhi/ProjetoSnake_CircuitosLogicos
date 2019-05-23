@@ -1,0 +1,187 @@
+m255
+K3
+13
+cModel Technology
+Z0 dX:\psi3451\aula_2\rc_1
+T_opt
+VO7_Ve;>YhV6W8_FlI4Rom3
+04 10 10 work rc_adder_1 structural 1
+=1-782bcbbffd2c-5c783d1a-3e5-18f4
+o-quiet -auto_acc_if_foreign -work work +acc
+n@_opt
+OL;O;10.1d;51
+Eand2
+Z1 w1551383803
+Z2 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z3 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z4 dX:\psi3451\aula_2\rc_1
+Z5 8X:/psi3451/aula_2/rc_1/rc_adder_1.vhd
+Z6 FX:/psi3451/aula_2/rc_1/rc_adder_1.vhd
+l0
+L87
+V4@S9BeI<SzhZ8C]M?180_2
+Z7 OL;C;10.1d;51
+32
+Z8 !s108 1551383806.486000
+Z9 !s90 -reportprogress|300|-work|work|X:/psi3451/aula_2/rc_1/rc_adder_1.vhd|
+Z10 !s107 X:/psi3451/aula_2/rc_1/rc_adder_1.vhd|
+Z11 o-work work
+Z12 tExplicit 1
+!s100 FSN3PD[:o3mQEf=`z0UC01
+!i10b 1
+Adataflow
+R2
+R3
+DEx4 work 4 and2 0 22 4@S9BeI<SzhZ8C]M?180_2
+l95
+L93
+VkjC7MCBYFYcT^Lm?j20FV0
+R7
+32
+R8
+R9
+R10
+R11
+R12
+!s100 f7WZhEmZ8@l3IgMOk08O`3
+!i10b 1
+Efull_adder_2
+R1
+R2
+R3
+R4
+R5
+R6
+l0
+L40
+VIRQjS@2njmzj^1BGLSh@B2
+R7
+32
+R8
+R9
+R10
+R11
+R12
+!s100 kBL9z1G^[KYMXe0fGN^Hz1
+!i10b 1
+Astructural
+R2
+R3
+DEx4 work 12 full_adder_2 0 22 IRQjS@2njmzj^1BGLSh@B2
+l72
+L50
+VfnUR4fo46_e_;64[Wf0kK2
+R7
+32
+R8
+R9
+R10
+R11
+R12
+!s100 lee^6H]zniQM=l@YWL@3j1
+!i10b 1
+Eor3
+R1
+R2
+R3
+R4
+R5
+R6
+l0
+L117
+V9_V9g:k=zOC8>fg02JA8m1
+R7
+32
+R8
+R9
+R10
+R11
+R12
+!s100 872A8Y<>Q;i_ZH4ZOX14V3
+!i10b 1
+Adataflow
+R2
+R3
+DEx4 work 3 or3 0 22 9_V9g:k=zOC8>fg02JA8m1
+l125
+L123
+VBjmFgbz@_W4Mm^IF=kL[d0
+R7
+32
+R8
+R9
+R10
+R11
+R12
+!s100 0^^LZQjM@A1PPRdc1T9n12
+!i10b 1
+Erc_adder_1
+R1
+R2
+R3
+R4
+R5
+R6
+l0
+L4
+VQ37ISeLenClhR2ffNUXa;3
+R7
+32
+R8
+R9
+R10
+R11
+R12
+!s100 ]RYaI]3?cD_3S@@JBbLcn3
+!i10b 1
+Astructural
+R2
+R3
+DEx4 work 10 rc_adder_1 0 22 Q37ISeLenClhR2ffNUXa;3
+l27
+L20
+V_KKFLH@gVoaX99;HE=R>10
+R7
+32
+R8
+R9
+R10
+R11
+R12
+!s100 XKmC?:BF`:1;5_g9el0N=0
+!i10b 1
+Exor2
+R1
+R2
+R3
+R4
+R5
+R6
+l0
+L102
+VQbb5><CMR9g]2UUcn3T:Z3
+R7
+32
+R8
+R9
+R10
+R11
+R12
+!s100 mNFXmGbVa5gzh_A;QSIh@1
+!i10b 1
+Adataflow
+R2
+R3
+DEx4 work 4 xor2 0 22 Qbb5><CMR9g]2UUcn3T:Z3
+l110
+L108
+VAZM:@]aD=A8zKoePTjWc21
+R7
+32
+R8
+R9
+R10
+R11
+R12
+!s100 MPOX5g4gNz>CG0Qc75:_i1
+!i10b 1
