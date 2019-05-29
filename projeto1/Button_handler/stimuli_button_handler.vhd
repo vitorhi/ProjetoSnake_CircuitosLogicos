@@ -4,51 +4,46 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use work.snake_package.all;
 
+--Entity
 entity stimuli_button_handler is
-  --Clock_generator
 	generic
 	(
 
-	CLK_PERIOD		: TIME	:=  10ns
+		CLK_PERIOD		: time	:=  10ns
 
 	);
-  --button_handler port
-  port
+	port
 	(
 
-  --Outs
-	clk					: out STD_LOGIC;
-	res					: out STD_LOGIC;
-	load_regs			: out STD_LOGIC;
-	sys_direction		: out STD_LOGIC_VECTOR(3 downto 0);
-	sys_step_jumper		: out STD_LOGIC;
-
-  --Ins
-	direction_sync		: in direction;
-	step_jumper_sync	: in STD_LOGIC
+	  --Stimulis
+		CLK					: out std_logic;
+		RES					: out std_logic;
+		LOAD_REGS			: out std_logic;
+		SYS_DIRECTION		: out std_logic_vector(3 downto 0);
+		SYS_STEP_JUMPER		: out std_logic
 
 	);
 end stimuli_button_handler;
 
+--Architecture
 architecture stimuli_button_handler_arc of stimuli_button_handler is
   --Intermediate signals
   signal clk_s : std_logic;
 
   --Component Declarations
-    --Clock_generator declaration
   component clock_generator is
-    generic
-  	(
+		generic
+		(
 
-  	CLK_PERIOD		: TIME	:= 10ns
+			CLK_PERIOD		: time	:= 10ns
 
-    );
-  	port
-  	(
+		);
+		port
+		(
 
-    clk		: out STD_LOGIC
+			CLK		: out std_logic
 
-    );
+		);
   end component;
 
   begin
@@ -60,45 +55,91 @@ architecture stimuli_button_handler_arc of stimuli_button_handler is
     BLOCK1 : clock_generator port map ( clk => clk_s );
 
     --Behavioral
-    SIM : process is
+    STIMULI : process is
 
 		--PROCEDURES
-		procedure check_direction( sys_direction_value : in std_logic_vector ( 3 downto 0 ) ) is
+		procedure initial_values is
+			--Set the initial values
 			begin
 
-				sys_direction <= sys_direction_value;
-				wait until rising_edge ( clk_s );
+				res <= '0';
+				load_regs <= '1';
+				sys_step_jumper <= '0';
+				sys_direction <= "0001"; --Right
+				wait for CLK_PERIOD;
 
-		end procedure check_direction;
+		end procedure initial_values;
 
-		procedure reset_activate is
+		procedure opposite_dir is
+			--Test the responsive to an opposite direction input
 			begin
 
-				wait until falling_edge(CLK_s);
+				sys_direction <= "0001"; --Right
+				wait for CLK_PERIOD;
+				sys_direction <= "0010"; --left
+				wait for CLK_PERIOD;
+
+		end procedure opposite_dir;
+
+		procedure all_dirs is
+			--Test the inputs of the directions set
+			begin
+
+				sys_direction <= "1000"; --Down
+				wait for CLK_PERIOD;
+				sys_direction <= "0001"; --Right
+				wait for CLK_PERIOD;
+				sys_direction <= "0100"; --Up
+				wait for CLK_PERIOD;
+				sys_direction <= "0010"; --Left
+				wait for CLK_PERIOD;
+
+		end all_dirs;
+
+		procedure reset_active is
+			--Test the output to a reset input
+			begin
+
 				res <= '1';
 				wait for CLK_PERIOD;
 				res <= '0';
 
-		end procedure reset_activate;
+		end procedure reset_active;
 
-		procedure check_load_regs( load_regs_value : in std_logic ) is
+		procedure step_jumper is
+			--Test the output to a step jumper input
+			begin
+
+				sys_step_jumper <= '1';
+				wait for CLK_PERIOD;
+				sys_step_jumper <= '0';
+
+		end procedure step_jumper;
+
+		procedure wrong_input_dirs is
+			--Test the responsive to wrong directions inputs
+			begin
+
+				sys_direction <= "1111";
+				wait for CLK_PERIOD;
+				sys_direction <= "0000";
+				wait for CLK_PERIOD;
+				sys_direction <= "1010";
+				wait for CLK_PERIOD;
+
+		end procedure wrong_input_dirs;
+
 		begin
 
-			load_regs <= load_regs_value;
-			wait until rising_edge ( clk_s );
-
-		end procedure check_load_regs;
-
-		begin
-
-			reset_activate;
-			check_direction("1000");
-			wait for 2*CLK_PERIOD;
-			check_direction("1001");
-			wait for 2*CLK_PERIOD;
-			check_direction("0001");
+			initial_values;
+			wait for 2*CLK_PERIOD; --Is it keeping the same direction if there isn't any button input? 
+			opposite_dir;
+			all_dirs;
+			reset_active;
+			step_jumper;
+			wrong_input_dirs;
 			wait for CLK_PERIOD;
 
-    end process SIM;
+    end process STIMULI;
 
 end stimuli_button_handler_arc;

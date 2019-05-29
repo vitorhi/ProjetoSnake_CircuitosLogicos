@@ -2,29 +2,34 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
+--Entity
 entity clock_generator is
 	generic
 	(
-	CLK_PERIOD		: TIME	:= 10ns
-	);
 
+		CLK_PERIOD		: time	:= 10ns
+
+	);
 	port
 	(
-	clk		: out STD_LOGIC
+
+		CLK		: out std_logic
+
 	);
 end clock_generator ;
 
-
+--Architecture
 architecture clock_generator_arc of clock_generator is
-
-begin
-
-clk_generation : process
 	begin
-		CLK <= '1';
-		wait for CLK_PERIOD / 2;
-		CLK <= '0';
-		wait for CLK_PERIOD / 2;
-	end process clk_generation;
+
+	GENERATION : process is
+		begin
+
+			CLK <= '1';
+			wait for CLK_PERIOD / 2;
+			CLK <= '0';
+			wait for CLK_PERIOD / 2;
+
+		end process GENERATION;
 
 end architecture clock_generator_arc;
