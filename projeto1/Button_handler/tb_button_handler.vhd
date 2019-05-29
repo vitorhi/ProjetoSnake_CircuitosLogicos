@@ -52,7 +52,7 @@ architecture tb_button_handler_arc of tb_button_handler is
   end component;
 
   --Intermediate signals
-  signal clk_s, res_s, load_regs_s, sys_step_jumper_s;
+  signal clk_s, res_s, load_regs_s, sys_step_jumper_s : std_logic;
   signal sys_direction_s : std_logic_vector( 3 downto 0 );
 
   begin
