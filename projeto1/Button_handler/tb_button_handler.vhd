@@ -52,15 +52,15 @@ architecture tb_button_handler_arc of tb_button_handler is
   end component;
 
   --Intermediate signals
-  signal clk_s, res_s, load_regs_s, sys_step_jumper_s : std_logic := '0';
-  signal sys_direction_s : std_logic_vector( 3 downto 0 ) := "1000";
+  signal clk_s, res_s, load_regs_s, sys_step_jumper_s;
+  signal sys_direction_s : std_logic_vector( 3 downto 0 );
 
   begin
 
     --Structural
-    BLOCK1 : button_handler port map ( clk => clk_s, res => res_s, load_regs => load_regs_s, sys_direction => sys_direction_s,
-      sys_step_jumper => sys_step_jumper_s );
-    BLOCK2 : stimuli_button_handler port map ( CLK => clk_s, RES => res_s, LOAD_REGS => load_regs_s, SYS_DIRECTION => sys_direction_s,
+    BLOCK1 : stimuli_button_handler port map ( CLK => clk_s, RES => res_s, LOAD_REGS => load_regs_s, SYS_DIRECTION => sys_direction_s,
       SYS_STEP_JUMPER => sys_step_jumper_s );
+    BLOCK2 : button_handler port map ( clk => clk_s, res => res_s, load_regs => load_regs_s, sys_direction => sys_direction_s,
+      sys_step_jumper => sys_step_jumper_s );
 
 end tb_button_handler_arc;
