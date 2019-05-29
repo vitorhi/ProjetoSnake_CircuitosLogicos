@@ -64,7 +64,7 @@ architecture stimuli_button_handler_arc of stimuli_button_handler is
 					res <= '0';
 					load_regs <= '1';
 					sys_step_jumper <= '0';
-					sys_direction <= "0001"; --Right
+					sys_direction <= "0010"; --Left
 					wait for CLK_PERIOD;
 
 			end procedure initial_values;
@@ -73,9 +73,9 @@ architecture stimuli_button_handler_arc of stimuli_button_handler is
 				--Test the responsive to an opposite direction input
 				begin
 
-					sys_direction <= "0001"; --Right
+					sys_direction <= "0001"; --Left
 					wait for CLK_PERIOD;
-					sys_direction <= "0010"; --left
+					sys_direction <= "0010"; --Right
 					wait for CLK_PERIOD;
 
 			end procedure opposite_dir;
