@@ -13,7 +13,7 @@ entity lfsr is
 	(
 	clk  : in  STD_LOGIC;
 	res : in  STD_LOGIC;
-	out_bits   	: out  STD_LOGIC_VECTOR(11 downto 0)
+	out_bits   	: out  STD_LOGIC_VECTOR(7 downto 0)
 	);
 end lfsr;
 
@@ -86,7 +86,15 @@ LFSR: for I in 0 to 11 generate
       		);
     end generate FLIP_NO_XOR;
 
-    out_bits <= q_sig;
+    out_bits(0) <= q_sig(0);
+    out_bits(1) <= q_sig(1);
+    out_bits(2) <= q_sig(2);
+    out_bits(3) <= '0';
+    out_bits(4) <= q_sig(3);
+    out_bits(5) <= q_sig(4);
+    out_bits(6) <= q_sig(5);
+    out_bits(7) <= '0';
+   
 
 end generate LFSR;
 
