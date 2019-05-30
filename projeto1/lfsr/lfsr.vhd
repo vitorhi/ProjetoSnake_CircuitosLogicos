@@ -53,7 +53,7 @@ LFSR: for I in 0 to 11 generate
     end generate PRIMEIRO_FLIP;
 
     ULTIMO_FLIP: if I=11 generate
-      U0: reg_reset 	
+      U11: reg_reset 	
       	port map(
       		clk=>clk,
       		load=>'1',
@@ -76,7 +76,7 @@ LFSR: for I in 0 to 11 generate
     end generate FLIP_XOR;
 
     FLIP_NO_XOR: if (I/=1) and (I/=4) and (I/=5) and (I/=8) and (I/=9) and (I/=10) and (I/=0) and (I/=11) generate
-      UX: reg_reset
+      UNX: reg_reset
       	port map(
       		clk=>clk,
       		load=>'1',
