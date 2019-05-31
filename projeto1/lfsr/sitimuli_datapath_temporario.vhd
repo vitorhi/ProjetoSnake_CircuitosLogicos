@@ -17,9 +17,7 @@ entity stimuli_datapath_temporario is
 
     CLK				: out std_logic;						--from system
   	RES				: out std_logic;						--from system
-  	FSM_M_START		: out std_logic;						--from fsm main
-  	OFC_OF_X		: out std_logic;						--from datapath/overflow module
-  	OFC_OF_Y		: out std_logic						--from datapath/overflow module
+  	CTRL_CTRL		: out datapath_ctrl_flags					--from datapath/overflow module
 
 	);
 end stimuli_datapath_temporario;
@@ -52,77 +50,27 @@ architecture stimuli_datapath_temporario_arc of stimuli_datapath_temporario is
 
     --Structural
     BLOCK1 : clock_generator port map ( clk => clk_s );
+    STIMULI: process is
+	    begin
+	    	--setando para numero numero +1
+		    res <= '1';
+		    CTRL_CTRL.ng_pos_neg <= '0';
+		    CTRL_CTRL.ng_one_gen <= '0';
+		    wait for 2*CLK_PERIOD;
 
-    --Behavioral
-    STIMULI : process is
-			--PROCEDURES
-			procedure reset_active is
-				--GO TO RESET_ROW
-				begin
+		    --setando para numero numero -1
+		    CTRL_CTRL.ng_pos_neg <= '1'; 
+		    CTRL_CTRL.ng_one_gen <= '0'; 
+		    wait for 2*CLK_PERIOD;
 
-					RES <= '1';
-					wait for 5*CLK_PERIOD;
-					RES <= '0';
-
-			end procedure reset_active;
-
-			procedure loop1 is
-				--RESET_ROW -> JUMP_ROW -> WRITE_HEAD -> READY -> RESET_ROW
-				begin
-
-					FSM_M_START <= '1';
-					OFC_OF_X <= '1';
-					OFC_OF_Y <= '1';
-					wait for 5*CLK_PERIOD;
-
-			end procedure loop1;
-
-			procedure loop2 is
-				--RESET_ROW -> JUMP_ROW -> RESET_ROW
-				begin
-
-					FSM_M_START <= '1';
-					OFC_OF_X <= '1';
-					OFC_OF_Y <= '0';
-					wait for 3*CLK_PERIOD;
-
-			end procedure loop2;
-
-			procedure loop3 is
-				--RESET_ROW -> RESET_ROW
-				begin
-
-					FSM_M_START <= '1';
-					OFC_OF_X <= '0';
-					OFC_OF_Y <= '1';
-					wait for 2*CLK_PERIOD;
-
-			end procedure loop3;
-
-			procedure loop4 is
-				--RESET_ROW -> JUMP_ROW -> WRITE_HEAD -> READY -> READY
-				begin
-
-					FSM_M_START <= '1';
-					OFC_OF_X <= '1';
-					OFC_OF_Y <= '1';
-					wait for 4*CLK_PERIOD;
-					FSM_M_START <= '0';
-					wait for CLK_PERIOD;
-
-			end procedure loop4;
-
-			begin
-
-				reset_active;
-				loop1;
-				reset_active;
-				loop2;
-				reset_active;
-				loop3;
-				reset_active;
-				loop4;
-
-    end process STIMULI;
+		    --setando para numero randomico pelo lfsr
+		    CTRL_CTRL.ng_one_gen <= '1'; 
+		    res <= '0';
+		    wait for CLK_PERIOD;
+		    CTRL_CTRL.ng_one_gen <= '1'; 
+		    res <= '1';
+	    	wait for CLK_PERIOD*20;
+	    	
+	    end process STIMULI;
 
 end stimuli_datapath_temporario_arc;

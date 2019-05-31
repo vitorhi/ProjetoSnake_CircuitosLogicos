@@ -13,8 +13,6 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
---library work;
---use work.all;
 use work.snake_package.all;
 
 

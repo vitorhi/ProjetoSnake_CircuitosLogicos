@@ -1,15 +1,4 @@
---***************************************************************
---*																*
---*	Title	:													*
---*	Design	:													*
---*	Author	:													*
---*	Email	:													*
---*																*
---***************************************************************
---*																*
---*	Description :												*
---*																*
---***************************************************************
+
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
@@ -37,26 +26,6 @@ end num_gen ;
 
 architecture arch of num_gen is
 
-
---***********************************
---*	SIMPLIFIED FUNTION DECLARATION		*
---***********************************
-
---function rand_num_f(width : NATURAL) return std_logic_vector is
-  
---	variable res_v : std_logic_vector(WIDTH - 1 downto 0);
---	--	Meu numero usp, em decimal, eh 9344921  ****COMPLETAR*** 
---    --    	Meu numero usp mod 64, em decimal eh 25 ****COMPLETAR***
-
---	variable n_usp_mod :  unsigned (WIDTH - 1 downto 0);
-	
-
-
---begin
---  n_usp_mod:=(to_unsigned(25, number'length));
---  res_v := std_logic_vector (n_usp_mod);
---  return res_v;
---end function;
 component lfsr is 
    
 	port
@@ -91,13 +60,10 @@ begin
 				rand_num AFTER 8 ns	 when (one_num_gen = '1') else
 				(others => 'X' );
 
-	
+	--acrecimo do lfsr ao num_gen
 	INSTANCIA_LFSR: lfsr port map(clk,set,rand_num);
 	number		<= 	one_gen_s ;
 	
-
-	
-
 	
 	
 end arch;
