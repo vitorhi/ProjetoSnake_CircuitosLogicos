@@ -54,7 +54,8 @@ architecture tb_fsm_step_arc of tb_fsm_step is
   end component;
 
   --Intermediate signals
-  signal clk_s, res_s, fsm_m_start_s, cmp_food_flag_s, cmp_body_flag_s, sys_direction_s : std_logic;
+  signal clk_s, res_s, fsm_m_start_s, cmp_food_flag_s, cmp_body_flag_s : std_logic;
+  signal sys_direction_s : direction;
 
   begin
 

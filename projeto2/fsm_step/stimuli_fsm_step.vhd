@@ -62,7 +62,7 @@ architecture stimuli_fsm_step_arc of stimuli_fsm_step is
 				begin
 
 					RES <= '1';
-					wait for 2*CLK_PERIOD;
+					wait for 1*CLK_PERIOD;
 					RES <= '0';
 
 			end procedure reset_active;
@@ -85,9 +85,7 @@ architecture stimuli_fsm_step_arc of stimuli_fsm_step is
 					CMP_FOOD_FLAG <= '0';
 					CMP_BODY_FLAG <= '0';
 					SYS_DIRECTION <= S_DOWN;
-					wait for 2*CLK_PERIOD;
-					CMP_FOOD_FLAG <= 0;
-					wait for 2*CLK_PERIOD;
+					wait for 4*CLK_PERIOD;
 
 			end procedure loop2;
 
@@ -100,9 +98,7 @@ architecture stimuli_fsm_step_arc of stimuli_fsm_step is
 					CMP_FOOD_FLAG <= '0';
 					CMP_BODY_FLAG <= '0';
 					SYS_DIRECTION <= S_UP;
-					wait for 2*CLK_PERIOD;
-					CMP_FOOD_FLAG <= 0;
-					wait for 2*CLK_PERIOD;
+					wait for 4*CLK_PERIOD;
 
 			end procedure loop3;
 
@@ -115,9 +111,7 @@ architecture stimuli_fsm_step_arc of stimuli_fsm_step is
 					CMP_FOOD_FLAG <= '0';
 					CMP_BODY_FLAG <= '0';
 					SYS_DIRECTION <= S_RIGHT;
-					wait for 2*CLK_PERIOD;
-					CMP_FOOD_FLAG <= 0;
-					wait for 2*CLK_PERIOD;
+					wait for 4*CLK_PERIOD;
 
 			end procedure loop4;
 
@@ -130,9 +124,7 @@ architecture stimuli_fsm_step_arc of stimuli_fsm_step is
 					CMP_FOOD_FLAG <= '0';
 					CMP_BODY_FLAG <= '0';
 					SYS_DIRECTION <= S_LEFT;
-					wait for 2*CLK_PERIOD;
-					CMP_FOOD_FLAG <= 0;
-					wait for 2*CLK_PERIOD;
+					wait for 4*CLK_PERIOD;
 
 			end procedure loop5;
 
@@ -145,14 +137,12 @@ architecture stimuli_fsm_step_arc of stimuli_fsm_step is
 					CMP_FOOD_FLAG <= '0';
 					CMP_BODY_FLAG <= '0';
 					SYS_DIRECTION <= S_LEFT;
-					wait for 2*CLK_PERIOD;
-					CMP_FOOD_FLAG <= 0;
-					wait for 2*CLK_PERIOD;
+					wait for 4*CLK_PERIOD;
 
 			end procedure loop6;
 
 			procedure loop7 is
-				--READY -> NEW_POSITION(S_LEFT) -> CHECK('10')(S_LEFT) -> POP_WRITE_TAIL -> READY
+				--READY -> NEW_POSITION(S_LEFT) -> CHECK('10')(S_LEFT) -> READY
 				begin
 
 					FSM_M_START <= '1';
@@ -160,14 +150,12 @@ architecture stimuli_fsm_step_arc of stimuli_fsm_step is
 					CMP_FOOD_FLAG <= '1';
 					CMP_BODY_FLAG <= '0';
 					SYS_DIRECTION <= S_LEFT;
-					wait for 2*CLK_PERIOD;
-					CMP_FOOD_FLAG <= 0;
-					wait for 2*CLK_PERIOD;
+					wait for 4*CLK_PERIOD;
 
 			end procedure loop7;
 
 			procedure loop8 is
-				--READY -> NEW_POSITION(S_LEFT) -> CHECK('11')(S_LEFT) -> POP_WRITE_TAIL -> READY
+				--READY -> NEW_POSITION(S_LEFT) -> CHECK('11')(S_LEFT) -> READY
 				begin
 
 					FSM_M_START <= '1';
@@ -175,9 +163,7 @@ architecture stimuli_fsm_step_arc of stimuli_fsm_step is
 					CMP_FOOD_FLAG <= '1';
 					CMP_BODY_FLAG <= '1';
 					SYS_DIRECTION <= S_LEFT;
-					wait for 2*CLK_PERIOD;
-					CMP_FOOD_FLAG <= 0;
-					wait for 2*CLK_PERIOD;
+					wait for 4*CLK_PERIOD;
 
 			end procedure loop8;
 
@@ -187,12 +173,10 @@ architecture stimuli_fsm_step_arc of stimuli_fsm_step is
 
 					FSM_M_START <= '1';
 					SYS_DIRECTION <= S_LEFT;
-					CMP_FOOD_FLAG <= '1';
+					CMP_FOOD_FLAG <= '0';
 					CMP_BODY_FLAG <= '1';
 					SYS_DIRECTION <= S_LEFT;
-					wait for 2*CLK_PERIOD;
-					CMP_FOOD_FLAG <= 0;
-					wait for 2*CLK_PERIOD;
+					wait for 4*CLK_PERIOD;
 
 			end procedure loop9;
 
@@ -202,12 +186,10 @@ architecture stimuli_fsm_step_arc of stimuli_fsm_step is
 
 					FSM_M_START <= '1';
 					SYS_DIRECTION <= S_RIGHT;
-					CMP_FOOD_FLAG <= '1';
+					CMP_FOOD_FLAG <= '0';
 					CMP_BODY_FLAG <= '1';
 					SYS_DIRECTION <= S_LEFT;
-					wait for 2*CLK_PERIOD;
-					CMP_FOOD_FLAG <= 0;
-					wait for 2*CLK_PERIOD;
+					wait for 4*CLK_PERIOD;
 
 			end procedure loop10;
 
@@ -217,12 +199,10 @@ architecture stimuli_fsm_step_arc of stimuli_fsm_step is
 
 					FSM_M_START <= '1';
 					SYS_DIRECTION <= S_UP;
-					CMP_FOOD_FLAG <= '1';
+					CMP_FOOD_FLAG <= '0';
 					CMP_BODY_FLAG <= '1';
 					SYS_DIRECTION <= S_LEFT;
-					wait for 2*CLK_PERIOD;
-					CMP_FOOD_FLAG <= 0;
-					wait for 2*CLK_PERIOD;
+					wait for 4*CLK_PERIOD;
 
 			end procedure loop11;
 
@@ -235,13 +215,36 @@ architecture stimuli_fsm_step_arc of stimuli_fsm_step is
 					CMP_FOOD_FLAG <= '1';
 					CMP_BODY_FLAG <= '1';
 					SYS_DIRECTION <= S_LEFT;
-					wait for 2*CLK_PERIOD;
+					wait for 4*CLK_PERIOD;
 
 			end procedure loop12;
 
 			begin
 
-				--
+				reset_active;
+				loop1;
+				reset_active;
+				loop2;
+				reset_active;
+				loop3;
+				reset_active;
+				loop4;
+				reset_active;
+				loop5;
+				reset_active;
+				loop6;
+				reset_active;
+				loop7;
+				reset_active;
+				loop8;
+				reset_active;
+				loop9;
+				reset_active;
+				loop10;
+				reset_active;
+				loop11;
+				reset_active;
+				loop12;
 
     end process STIMULI;
 
