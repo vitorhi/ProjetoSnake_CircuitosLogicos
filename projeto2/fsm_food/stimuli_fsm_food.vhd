@@ -24,7 +24,7 @@ entity stimuli_fsm_food is
 end stimuli_fsm_food;
 
 --Architecture
-architecture stimuli_fsm_food_arc of stimuli_food_init is
+architecture stimuli_fsm_food_arc of stimuli_fsm_food is
   --Intermediate signals
   signal clk_s : std_logic;
 
@@ -71,7 +71,7 @@ architecture stimuli_fsm_food_arc of stimuli_food_init is
 
 					FSM_M_START <= '1';
 					CMP_BODY_FLAG <= '1';
-					wait for 2*CLK_PERIOD;
+					wait for 3*CLK_PERIOD;
 
 			end procedure loop1;
 
@@ -90,13 +90,18 @@ architecture stimuli_fsm_food_arc of stimuli_food_init is
 
 					FSM_M_START <= '1';
 					CMP_BODY_FLAG <= '0';
-					wait for 4*CLK_PERIOD;
+					wait for 3*CLK_PERIOD;
 
 			end procedure loop3;
 
 			begin
 
-				--COMPLETAR
+				reset_active;
+				loop1;
+				reset_active;
+				loop2;
+				reset_active;
+				loop3;
 
     end process STIMULI;
 
