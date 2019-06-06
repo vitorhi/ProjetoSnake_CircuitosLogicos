@@ -129,19 +129,6 @@ architecture stimuli_fsm_step_arc of stimuli_fsm_step is
 			end procedure loop5;
 
 			procedure loop6 is
-				--READY -> NEW_POSITION(S_LEFT) -> CHECK('00')(S_LEFT) -> POP_WRITE_TAIL -> READY
-				begin
-
-					FSM_M_START <= '1';
-					SYS_DIRECTION <= S_LEFT;
-					CMP_FOOD_FLAG <= '0';
-					CMP_BODY_FLAG <= '0';
-					SYS_DIRECTION <= S_LEFT;
-					wait for 4*CLK_PERIOD;
-
-			end procedure loop6;
-
-			procedure loop7 is
 				--READY -> NEW_POSITION(S_LEFT) -> CHECK('10')(S_LEFT) -> READY
 				begin
 
@@ -152,9 +139,9 @@ architecture stimuli_fsm_step_arc of stimuli_fsm_step is
 					SYS_DIRECTION <= S_LEFT;
 					wait for 4*CLK_PERIOD;
 
-			end procedure loop7;
+			end procedure loop6;
 
-			procedure loop8 is
+			procedure loop7 is
 				--READY -> NEW_POSITION(S_LEFT) -> CHECK('11')(S_LEFT) -> READY
 				begin
 
@@ -165,9 +152,9 @@ architecture stimuli_fsm_step_arc of stimuli_fsm_step is
 					SYS_DIRECTION <= S_LEFT;
 					wait for 4*CLK_PERIOD;
 
-			end procedure loop8;
+			end procedure loop7;
 
-			procedure loop9 is
+			procedure loop8 is
 				--READY -> NEW_POSITION(S_LEFT) -> CHECK('01')(S_LEFT) -> POP_WRITE_TAIL -> READY
 				begin
 
@@ -178,9 +165,9 @@ architecture stimuli_fsm_step_arc of stimuli_fsm_step is
 					SYS_DIRECTION <= S_LEFT;
 					wait for 4*CLK_PERIOD;
 
-			end procedure loop9;
+			end procedure loop8;
 
-			procedure loop10 is
+			procedure loop9 is
 				--READY -> NEW_POSITION(S_RIGHT) -> CHECK('01')(S_LEFT) -> POP_WRITE_TAIL -> READY
 				begin
 
@@ -191,9 +178,9 @@ architecture stimuli_fsm_step_arc of stimuli_fsm_step is
 					SYS_DIRECTION <= S_LEFT;
 					wait for 4*CLK_PERIOD;
 
-			end procedure loop10;
+			end procedure loop9;
 
-			procedure loop11 is
+			procedure loop10 is
 				--READY -> NEW_POSITION(S_UP) -> CHECK('01')(S_LEFT) -> POP_WRITE_TAIL -> READY
 				begin
 
@@ -204,10 +191,10 @@ architecture stimuli_fsm_step_arc of stimuli_fsm_step is
 					SYS_DIRECTION <= S_LEFT;
 					wait for 4*CLK_PERIOD;
 
-			end procedure loop11;
+			end procedure loop10;
 
-			procedure loop12 is
-				--READY -> NEW_POSITION(S_DOWN) -> CHECK('01')(S_LEFT) -> READY
+			procedure loop11 is
+				--READY -> NEW_POSITION(S_DOWN) -> CHECK('11')(S_LEFT) -> READY
 				begin
 
 					FSM_M_START <= '1';
@@ -217,7 +204,7 @@ architecture stimuli_fsm_step_arc of stimuli_fsm_step is
 					SYS_DIRECTION <= S_LEFT;
 					wait for 4*CLK_PERIOD;
 
-			end procedure loop12;
+			end procedure loop11;
 
 			begin
 
@@ -243,8 +230,6 @@ architecture stimuli_fsm_step_arc of stimuli_fsm_step is
 				loop10;
 				reset_active;
 				loop11;
-				reset_active;
-				loop12;
 
     end process STIMULI;
 
