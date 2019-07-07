@@ -14,32 +14,18 @@
 --
 -------------------------------------------------------------------------------
 --
--- Description : 
+-- Description :
 --
 -------------------------------------------------------------------------------
-package my_package is
-
-type CONTROL_SELECT is
-	(
-	INIT_CON,
-	FOOD_CON,
-	STEP_CON
-	);
-
-					
-end package;
-
-
-
 
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.std_logic_arith.all;
 use IEEE.std_logic_unsigned.all;
-use work.my_package.all;
+use work.snake_package.all;
 
 
-entity fsm_main is 
+entity fsm_main is
 	port
 	(
 	clk				: in STD_LOGIC;			--from system
@@ -82,33 +68,33 @@ upd_next_state:	process (cnt_rdy, cmp_food_flag, fsm_i_done, fsm_f_done, fsm_s_d
 											else
 			    								NEXT_STATE <= INIT_ATIVATION;
 											end if;
-		
+
 						when FOOD_ACTIVATION	=> 	if(fsm_f_done = '1') then
 												NEXT_STATE <= IDLE;
 											else
 			    								NEXT_STATE <= FOOD_ACTIVATION;
 											end if;
-							
+
 						when IDLE 		=> 	if(cnt_rdy = '1') then
 												NEXT_STATE <= STEP_ACTIVATION;
 											else
 												NEXT_STATE <= IDLE;
 											end if;
-															
-						when STEP_ACTIVATION 		=> 	if (fsm_s_game_over = '1') then 
+
+						when STEP_ACTIVATION 		=> 	if (fsm_s_game_over = '1') then
 												NEXT_STATE <= GAME_OVER;
 											elsif(cmp_food_flag = '1') then
-												NEXT_STATE <= FOOD_ACTIVATION;  
+												NEXT_STATE <= FOOD_ACTIVATION;
 											elsif(fsm_s_done = '1') then
 												NEXT_STATE <= IDLE;
 											else
 												NEXT_STATE <= STEP_ACTIVATION;
 											end if;
-									
+
 						when GAME_OVER 	=> 	NEXT_STATE <= GAME_OVER;
-						
+
 						when others		=> null;
-				
+
 					end case;
 				end process;
 ------------------------------------
@@ -136,32 +122,32 @@ upd_output:	process (STATE)
 										fsm_i_start	<= '1';
 										fsm_f_start	<= '0';
 									   	fsm_s_start	<= '0';
-			
+
 					when FOOD_ACTIVATION	=>  con_sel	<= FOOD_CON;
 										fsm_i_start	<= '0';
 										fsm_f_start	<= '1';
 									   	fsm_s_start	<= '0';
-						
+
 					when IDLE 		=>  con_sel	<= STEP_CON;
 										fsm_i_start	<= '0';
 										fsm_f_start	<= '0';
 									   	fsm_s_start	<= '0';
-			
+
 					when STEP_ACTIVATION 		=>  con_sel	<= STEP_CON;
 										fsm_i_start	<= '0';
 										fsm_f_start	<= '0';
 									   	fsm_s_start	<= '1';
-						
+
 					when GAME_OVER 	=>  con_sel	<= STEP_CON;
 										fsm_i_start	<= '0';
 										fsm_f_start	<= '0';
 									   	fsm_s_start	<= '0';
-					
+
 					when others		=> null;
-			
+
 				end case;
 			end process;
 
-					
-				
+
+
 end arch;

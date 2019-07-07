@@ -10,22 +10,10 @@
 --*	Description :												*
 --*																*
 --***************************************************************
-package my_package is
-
-	 type RB_SEL is	(
-					HEAD_OUT,
-					REG2_OUT,
-					FIFO_OUT
-					);
-
-end package;
-
-
 
 library IEEE;
 use IEEE.std_logic_1164.all;
-
-use work.my_package.all;
+use work.snake_package.all;
 
 
 entity reg_bank is
@@ -102,7 +90,7 @@ begin
 	--*	COMPONENT INSTANTIATIONS	*
 	--*******************************
 
-	reg_head:	reg		generic map
+	BLOCK3 :	reg		generic map
 						(
 						WIDTH	=> WIDTH
 						)
@@ -113,7 +101,7 @@ begin
 						);
 
 
-	reg_2:		reg		generic map
+	BLOCK2 :		reg		generic map
 						(
 						WIDTH	=> WIDTH
 						)
@@ -123,7 +111,7 @@ begin
 							clk => clk, clr => res, d => ofc_address, load => load_head, q => head_out_s
 						);
 
-	fifo:	fifo_1 port map
+	BLOCK1 :	fifo_1 port map
 						(
 							clock => clk, sclr => res , wrreq => load_fifo , rdreq => fifo_pop , data => ofc_address, q => fifo_out_s, empty => fifo_empty_s
 						);
