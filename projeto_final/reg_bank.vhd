@@ -17,7 +17,7 @@ package my_package is
 					REG2_OUT,
 					FIFO_OUT
 					);
-					
+
 end package;
 
 
@@ -28,7 +28,7 @@ use IEEE.std_logic_1164.all;
 use work.my_package.all;
 
 
-entity reg_bank is 
+entity reg_bank is
 	generic
 	(
 	WIDTH		: NATURAL	:= 8
@@ -64,7 +64,7 @@ component reg
 	(
 	WIDTH	: natural  := 8
 	);
-	
+
    port
    (
    clk  : in  STD_LOGIC;
@@ -106,37 +106,37 @@ begin
 						(
 						WIDTH	=> WIDTH
 						)
-						
+
 						port map
 						(
-
+							clk => clk, clear => res, d => ofc_address, load => load_reg2, q => reg2_out_s
 						);
-	
+
 
 	reg_2:		reg		generic map
 						(
 						WIDTH	=> WIDTH
 						)
-						
+
 						port map
 						(
-
+							clk => clk, clear => res, d => ofc_address, load => load_head, q => head_out_s
 						);
 
 	fifo:	fifo_1 port map
 						(
-
+							clock => clk, sclr => res , wrreq => load_fifo , rdreq => fifo_pop , data => ofc_address, q => fifo_out_s, empty => fifo_empty_s
 						);
-						
+
 	--*******************************
 	--*	SIGNAL ASSIGNMENTS			*
 	--*******************************
-	
+
 	alu_out	<= 	head_out_s	when (out_sel = HEAD_OUT) else
 				reg2_out_s	when (out_sel = REG2_OUT) else
 				fifo_out_s	when (out_sel = FIFO_OUT) else
 				(others => 'X');
-	
+
 	--*******************************
 	--*	PROCESS DEFINITIONS			*
 	--*******************************
