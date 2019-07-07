@@ -109,7 +109,7 @@ begin
 
 						port map
 						(
-							clk => clk, clear => res, d => ofc_address, load => load_reg2, q => reg2_out_s
+							clk => clk, clr => res, d => ofc_address, load => load_reg2, q => reg2_out_s
 						);
 
 
@@ -120,7 +120,7 @@ begin
 
 						port map
 						(
-							clk => clk, clear => res, d => ofc_address, load => load_head, q => head_out_s
+							clk => clk, clr => res, d => ofc_address, load => load_head, q => head_out_s
 						);
 
 	fifo:	fifo_1 port map
