@@ -94,7 +94,7 @@ component reg_bank
 	load_fifo	: in STD_LOGIC;
 	fifo_pop	: in STD_LOGIC;
 	out_sel		: in RB_SEL;
-	rb_out		: out STD_LOGIC_VECTOR(WIDTH-1 downto 0)
+	alu_out		: out STD_LOGIC_VECTOR(WIDTH-1 downto 0)
 	);
 end component;
 
@@ -110,6 +110,7 @@ component alu
 		rb_op			: in STD_LOGIC_VECTOR(WIDTH-1 downto 0);
 		ctrl_x_y		: in STD_LOGIC;
 		ctrl_pass_calc	: in STD_LOGIC;
+		fsm_food_active	: in STD_LOGIC;    -- included to make x mask inactive during random generation of food
 		ofc_result		: out STD_LOGIC_VECTOR(WIDTH-1 downto 0)
 		);
 end component;
@@ -165,6 +166,8 @@ end component;
 --***********************************
 --*	INTERNAL SIGNAL DECLARATIONS	*
 --***********************************
+
+signal fsm_food_active_s : STD_LOGIC;
 signal ng_2_alu_s		: STD_LOGIC_VECTOR(WIDTH-1 downto 0);
 signal rb_2_alu_s		: STD_LOGIC_VECTOR(WIDTH-1 downto 0);
 signal alu_2_ofc_s		: STD_LOGIC_VECTOR(WIDTH-1 downto 0);
@@ -239,10 +242,8 @@ begin
 								load_fifo	=> ctrl_ctrl.rb_fifo_en,
 								fifo_pop	=> ctrl_ctrl.rb_fifo_pop,
 								out_sel		=> ctrl_ctrl.rb_out_sel,
-								rb_out		=> rb_2_alu_s
+								alu_out		=> rb_2_alu_s
 								);
-
-
 	alu_un:	alu generic map
 								(
 								WIDTH	=> WIDTH
@@ -254,7 +255,8 @@ begin
 								rb_op			=> rb_2_alu_s,
 								ctrl_x_y		=> ctrl_ctrl.alu_x_y,
 								ctrl_pass_calc	=> ctrl_ctrl.alu_pass_calc,
-								ofc_result		=> alu_2_ofc_s
+								ofc_result		=> alu_2_ofc_s,
+								fsm_food_active => fsm_food_active_s
 								);
 
 	ofc:	overflow_correction	generic map
@@ -304,6 +306,7 @@ begin
 
 	-- cut off the overflowbits (msb of every coordinate)
 	mem_a_addr_s <= ofc_2_rb_s(WIDTH-2 downto WIDTH/2) & ofc_2_rb_s(WIDTH/2-2 downto 0);
+	fsm_food_active_s <= '1' when (ctrl_ctrl.cg_sel=FOOD) else '0';
 
 	mem_a_en <= "1";
 

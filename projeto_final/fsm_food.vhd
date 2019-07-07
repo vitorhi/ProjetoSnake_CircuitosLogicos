@@ -17,7 +17,7 @@ use IEEE.std_logic_arith.all;
 use IEEE.std_logic_unsigned.all;
 use work.snake_package.all;
 
-entity fsm_food is 
+entity fsm_food is
 	port
 	(
 	clk				: in STD_LOGIC;						--from system
@@ -25,6 +25,7 @@ entity fsm_food is
 	fsm_m_start		: in STD_LOGIC;						--from fsm main
 	cmp_body_flag	: in STD_LOGIC;						--from datapath/comparator module
 	dp_ctrl 		: out datapath_ctrl_flags;				--to datapath
+	ofc_of_x		: in STD_LOGIC;
 	fsm_m_done		: out STD_LOGIC						--to fsm main
 	);
 end fsm_food;
@@ -51,29 +52,29 @@ begin
 upd_next_state:	process (fsm_m_start, cmp_body_flag, STATE)
 				begin
 					case STATE is
-					
+
 					-- each new random number form GEN_NUM is added to what is registered in reg_head (first time) and reg2 (every new attempt)
-					
+
 						when READY		=> 	if(fsm_m_start = '1') then
 												NEXT_STATE <= GEN_NUM;
 											else
 			    								NEXT_STATE <= READY;
 											end if;
-		
-							
-						when GEN_NUM	=> 	if(cmp_body_flag = '0') then 
+
+
+						when GEN_NUM	=> 	if(cmp_body_flag = '0') then
 												NEXT_STATE <= FOOD_OK;
 											else
 												NEXT_STATE <= GEN_NUM;
-											end if;    
+											end if;
 
 						when FOOD_OK	=> 	NEXT_STATE <= READY;
 
 						when others		=> null;
-				
+
 					end case;
 				end process;
-				
+
 ------------------------------------
 -- Current State Logic (sequential)
 ------------------------------------
@@ -95,7 +96,7 @@ upd_state:	process (clk)
 upd_output:	process (cmp_body_flag, STATE)
 			begin
 				case STATE is
-					when READY	=> 	dp_ctrl 	<= 	(	
+					when READY	=> 	dp_ctrl 	<= 	(
 													ng_one_gen		=> '1',
 													ng_pos_neg		=> '0',
 													alu_x_y			=> '0',
@@ -104,15 +105,15 @@ upd_output:	process (cmp_body_flag, STATE)
 													rb_reg2_en	=> '0',
 													rb_fifo_en		=> '0',
 													rb_fifo_pop		=> '0',
-													rb_out_sel		=> HEAD_OUT,	
+													rb_out_sel		=> HEAD_OUT,
 													--  the value registered in reg_head is added to the generated random_number when READY is activated
 													cg_sel			=> FOOD,
 													mem_w_e			=> '0'
 													);
-														
-									fsm_m_done 		<= '0';					
-			
-					when GEN_NUM => dp_ctrl 	<= 	(	
+
+									fsm_m_done 		<= '0';
+
+					when GEN_NUM => dp_ctrl 	<= 	(
 													ng_one_gen		=> '1',
 													ng_pos_neg		=> '0',
 													alu_x_y			=> '0',
@@ -126,12 +127,12 @@ upd_output:	process (cmp_body_flag, STATE)
 													cg_sel			=> FOOD,
 													mem_w_e			=> '0'
 													);
-														
-									fsm_m_done 		<= '0';	
-						
+
+									fsm_m_done 		<= '0';
 
 
-						when FOOD_OK	=> 	dp_ctrl 	<= 	(	
+
+						when FOOD_OK	=> 	dp_ctrl 	<= 	(
 														ng_one_gen		=> '0',
 														ng_pos_neg		=> '0',
 														alu_x_y			=> '1',
@@ -144,12 +145,12 @@ upd_output:	process (cmp_body_flag, STATE)
 														cg_sel			=> FOOD,
 														mem_w_e			=> '1'
 														);
-														
-										fsm_m_done 		<= '1';	
-									
+
+										fsm_m_done 		<= '1';
+
 					when others		=> null;
-			
+
 				end case;
-			end process;					
-				
+			end process;
+
 end arch;
