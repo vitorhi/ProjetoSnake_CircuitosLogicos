@@ -14,7 +14,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use work.snake_package.all;
 
-entity datapath is 
+entity datapath is
 	generic
 	(
 	COR_WIDTH		: NATURAL	:= 3
@@ -51,9 +51,9 @@ component num_gen is
 	(
 	WIDTH	: natural := 8
 	);
-	
+
 	port
-	(	
+	(
 	clk			: in STD_LOGIC;
 	res			: in STD_LOGIC;
 	pos_neg			: in STD_LOGIC;
@@ -67,7 +67,7 @@ component reg
 	(
 	WIDTH	: natural  := 8
 	);
-	
+
    port
    (
    clk  : in  STD_LOGIC;
@@ -96,7 +96,7 @@ component reg_bank
 	out_sel		: in RB_SEL;
 	rb_out		: out STD_LOGIC_VECTOR(WIDTH-1 downto 0)
 	);
-end component;	
+end component;
 
 component alu
 	generic
@@ -105,13 +105,13 @@ component alu
 	);
 
 	port
-	(
-	op_first		: in STD_LOGIC_VECTOR(WIDTH-1 downto 0);
-	rb_op			: in STD_LOGIC_VECTOR(WIDTH-1 downto 0);
-	ctrl_x_y		: in STD_LOGIC;
-	ctrl_pass_calc	: in STD_LOGIC;
-	alu_result		: out STD_LOGIC_VECTOR(WIDTH-1 downto 0)
-	);
+		(
+		op_first		: in STD_LOGIC_VECTOR(WIDTH-1 downto 0);
+		rb_op			: in STD_LOGIC_VECTOR(WIDTH-1 downto 0);
+		ctrl_x_y		: in STD_LOGIC;
+		ctrl_pass_calc	: in STD_LOGIC;
+		ofc_result		: out STD_LOGIC_VECTOR(WIDTH-1 downto 0)
+		);
 end component;
 
 component overflow_correction
@@ -129,7 +129,7 @@ component overflow_correction
 	);
 end component;
 
-component code_gen is 
+component code_gen is
 	port
 	(
 	ctrl_code_sel	: in CODE;
@@ -185,7 +185,7 @@ begin
 								(
 								WIDTH	=> WIDTH
 								)
-								
+
 								port map
 								(
 								clk			=> clk,
@@ -200,7 +200,7 @@ begin
 						(
 						WIDTH	=> 6
 						)
-						
+
 						port map
 						(
 						clk		=> clk,
@@ -214,7 +214,7 @@ begin
 						(
 						WIDTH	=> 6
 						)
-						
+
 						port map
 						(
 						clk		=> clk,
@@ -223,7 +223,7 @@ begin
 						d		=> mem_a_addr_1_s,
 						q		=> mem_a_addr_2_s
 						);
-						
+
 	rb:		reg_bank			generic map
 								(
 								WIDTH	=> WIDTH
@@ -241,8 +241,8 @@ begin
 								out_sel		=> ctrl_ctrl.rb_out_sel,
 								rb_out		=> rb_2_alu_s
 								);
-	
-	
+
+
 	alu_un:	alu generic map
 								(
 								WIDTH	=> WIDTH
@@ -254,7 +254,7 @@ begin
 								rb_op			=> rb_2_alu_s,
 								ctrl_x_y		=> ctrl_ctrl.alu_x_y,
 								ctrl_pass_calc	=> ctrl_ctrl.alu_pass_calc,
-								alu_result		=> alu_2_ofc_s
+								ofc_result		=> alu_2_ofc_s
 								);
 
 	ofc:	overflow_correction	generic map
@@ -267,7 +267,7 @@ begin
 								from_alu	=> alu_2_ofc_s,
 								ofc_result	=> ofc_2_rb_s,
 								ctrl_of_x	=> ctrl_flags.ofc_of_x,
-								ctrl_of_y	=> ctrl_flags.ofc_of_y 
+								ctrl_of_y	=> ctrl_flags.ofc_of_y
 								);
 
 	c_g:	code_gen 			port map
@@ -289,7 +289,7 @@ begin
 								q_a			=> mem_a_read_s,
 								q_b			=> mem_b_data
 								);
-	
+
 	cmp:	comparator			port map
 								(
 								mem_a_read	=> mem_a_read_s,
@@ -297,20 +297,19 @@ begin
 								body_flag	=> ctrl_flags.cmp_body_flag
 								);
 
-	
+
 	--*******************************
 	--*	SIGNAL ASSIGNMENTS			*
 	--*******************************
-	
+
 	-- cut off the overflowbits (msb of every coordinate)
 	mem_a_addr_s <= ofc_2_rb_s(WIDTH-2 downto WIDTH/2) & ofc_2_rb_s(WIDTH/2-2 downto 0);
-	
+
 	mem_a_en <= "1";
 
 mem_a_addr_2_mem <= mem_a_addr_2_s when (ctrl_ctrl.mem_w_e='1' and ctrl_ctrl.cg_sel=FOOD) else mem_a_addr_s;
 	--*******************************
 	--*	PROCESS DEFINITIONS			*
 	--*******************************
-	
-end arch;
 
+end arch;

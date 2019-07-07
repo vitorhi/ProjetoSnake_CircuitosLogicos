@@ -7,8 +7,8 @@ use IEEE.NUMERIC_STD.all;
 library work;
 use work.all;
 
-entity lfsr is 
-   
+entity lfsr is
+
 	port
 	(
 	clk  : in  STD_LOGIC;
@@ -21,7 +21,7 @@ architecture arch of lfsr is
 
 --signal q_s	: STD_LOGIC_VECTOR(WIDTH-1 downto 0)	:= (others => '0');
 
-component reg_reset is 
+component reg_reset is
 	port
 	(
 	clk  : in  STD_LOGIC;
@@ -44,8 +44,8 @@ GENERATE_XOR: for ii in 0 to 11 generate
 end generate GENERATE_XOR;
 
 LFSR: for I in 0 to 11 generate
-	
-	
+
+
 
     PRIMEIRO_FLIP: if I=0 generate
       U0: reg_reset port map
@@ -53,7 +53,7 @@ LFSR: for I in 0 to 11 generate
     end generate PRIMEIRO_FLIP;
 
     ULTIMO_FLIP: if I=11 generate
-      U11: reg_reset 	
+      U11: reg_reset
       	port map(
       		clk=>clk,
       		load=>'1',
@@ -94,10 +94,10 @@ LFSR: for I in 0 to 11 generate
     out_bits(5) <= q_sig(4);
     out_bits(6) <= q_sig(5);
     out_bits(7) <= '0';
-   
+
 
 end generate LFSR;
 
-	
-   
+
+
 end arch;

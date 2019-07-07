@@ -26,7 +26,7 @@ entity reg_bank is
 	(
 	clk			: in STD_LOGIC;
 	res			: in STD_LOGIC;
-	ofc_address	: in STD_LOGIC_VECTOR(WIDTH-1 downto 0);
+	alu_ofc_result	: in STD_LOGIC_VECTOR(WIDTH-1 downto 0);
 	load_head	: in STD_LOGIC;
 	load_reg2	: in STD_LOGIC;
 	load_fifo	: in STD_LOGIC;
@@ -97,7 +97,7 @@ begin
 
 						port map
 						(
-							clk => clk, clr => res, d => ofc_address, load => load_reg2, q => reg2_out_s
+							clk => clk, clr => res, d => alu_ofc_result, load => load_reg2, q => reg2_out_s
 						);
 
 
@@ -108,12 +108,12 @@ begin
 
 						port map
 						(
-							clk => clk, clr => res, d => ofc_address, load => load_head, q => head_out_s
+							clk => clk, clr => res, d => alu_ofc_result, load => load_head, q => head_out_s
 						);
 
 	BLOCK1 :	fifo_1 port map
 						(
-							clock => clk, sclr => res , wrreq => load_fifo , rdreq => fifo_pop , data => ofc_address, q => fifo_out_s, empty => fifo_empty_s
+							clock => clk, sclr => res , wrreq => load_fifo , rdreq => fifo_pop , data => alu_ofc_result, q => fifo_out_s, empty => fifo_empty_s
 						);
 
 	--*******************************
