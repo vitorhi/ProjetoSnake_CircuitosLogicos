@@ -11,7 +11,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 use work.snake_package.all;
 
-entity snake_hw is 
+entity snake_hw is
 	generic
 	(
 	COR_WIDTH		: NATURAL	:= 3	--Width of one coordinate space addresing ( square of (2 ^ COR_WIDTH) x (2 ^ COR_WIDTH) )
@@ -23,7 +23,7 @@ entity snake_hw is
 	res				: in STD_LOGIC;
 	sys_direction	: in STD_LOGIC_VECTOR (3 downto 0);
 	sys_step_jumper	: in STD_LOGIC;
-	
+
 	--TESTPINS
 	test_mem_b_addr	: in STD_LOGIC_VECTOR(2*COR_WIDTH-1 downto 0);	--from vga interface module								--from vga interface module
 	test_idle_state	: out STD_LOGIC;
@@ -45,7 +45,7 @@ architecture arch of snake_hw is
 --*	COMPONENT DECLARATIONS			*
 --***********************************
 
-component control_snake 
+component control_snake
 	port
 	(
 	clk				: in STD_LOGIC;
@@ -54,7 +54,7 @@ component control_snake
 	cnt_rdy			: in STD_LOGIC;
 	dp_flags		: in datapath_flags;
 	dp_ctrl 		: out datapath_ctrl_flags;
-		
+
 	--TESTPORTS
 	test_idle_state	: out STD_LOGIC;
 	test_go_state	: out STD_LOGIC
@@ -78,7 +78,7 @@ component datapath
 	);
 end component;
 
-component step_counter 
+component step_counter
 	generic
 	(
 	COUNT_MAX	: positive	:= 1000000
@@ -113,6 +113,7 @@ end component;
 signal sys_direction_synched_s		: direction;
 signal sys_step_jumper_synched_s	: STD_LOGIC;
 signal cnt_rdy_s					: STD_LOGIC;
+signal cnt_bt_rdy_s : STD_LOGIC;
 
 signal dp_ctrl_s					: datapath_ctrl_flags;
 signal dp_flags_s					: datapath_flags;
@@ -136,13 +137,13 @@ begin
 								cnt_rdy			=> cnt_rdy_s,
 								dp_flags		=> dp_flags_s,
 								dp_ctrl			=> dp_ctrl_s,
-									
+
 								--TESTPORTS
 								test_idle_state	=> test_idle_state,
 								test_go_state	=> test_go_state
 								);
-	
-	
+
+
 	step_cnt:	step_counter 	generic map
 								(
 								COUNT_MAX	=> 100
@@ -154,7 +155,7 @@ begin
 								clr		=> res,
 								cnt_rdy	=> cnt_rdy_s
 								);
-								
+
 	dp_dummy: 	datapath		generic map
 								(
 								COR_WIDTH	=> COR_WIDTH
@@ -169,8 +170,8 @@ begin
 								mem_b_data	=> mem_b_data_s,
 								ctrl_flags	=> dp_flags_s
 								);
-								
-								
+
+
 	bh:			button_handler	port map
 								(
 								clk					=> clk,
@@ -181,17 +182,17 @@ begin
 								direction_sync		=> sys_direction_synched_s,
 								step_jumper_sync	=> sys_step_jumper_synched_s
 								);
-							
+
 	--*******************************
 	--*	SIGNAL ASSIGNMENTS			*
 	--*******************************
-	
+
 	--TESTPINS ASSIGNMENTS
-	mem_b_addr_s	<= test_mem_b_addr;	
+	mem_b_addr_s	<= test_mem_b_addr;
 	test_mem_b_data	<= mem_b_data_s;
-	
+
 	--*******************************
 	--*	PROCESS DEFINITIONS			*
 	--*******************************
-	
+
 end arch;
