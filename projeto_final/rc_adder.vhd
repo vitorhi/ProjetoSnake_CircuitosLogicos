@@ -23,12 +23,14 @@ architecture structural of rc_adder is
 				z_out, c_out:out STD_LOGIC);
 	END COMPONENT;
 
-	signal cout_1, cout_2 :STD_LOGIC;
+	signal cout_1, cout_2, count_3 :STD_LOGIC;
 	begin
 
 	ADD1: full_adder_2 PORT MAP (a_in=>a_i(0) ,b_in=>b_i(0) ,c_in=>c_i  , z_out=>z_o(0), c_out=>cout_1 );
 	ADD2: full_adder_2 PORT MAP (a_in=>a_i(1) ,b_in=>b_i(1) ,c_in=>cout_1, z_out=>z_o(1), c_out=>cout_2 );
-	ADD3: full_adder_2 PORT MAP (a_in=>a_i(2) ,b_in=>b_i(2) ,c_in=>cout_2, z_out=>z_o(2), c_out=>c_o );
+	ADD3: full_adder_2 PORT MAP (a_in=>a_i(2) ,b_in=>b_i(2) ,c_in=>cout_2, z_out=>z_o(2), c_out=>count_3 );
+	ADD4: full_adder_2 PORT MAP (a_in=>a_i(3) ,b_in=>b_i(3) ,c_in=>cout_2, z_out=>z_o(3), c_out=>c_o );
+
 end structural;
 
 
