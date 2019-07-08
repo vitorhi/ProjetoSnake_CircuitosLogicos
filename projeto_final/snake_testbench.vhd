@@ -130,7 +130,7 @@ begin
 	mon:	map_monitor		generic map
 							(
 							COR_WIDTH	=> 3,
-							log_file	=> "../../../test_results/map_record.txt"
+							log_file	=> "map_record.txt"
 							)
 
 							port map

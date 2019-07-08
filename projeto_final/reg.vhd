@@ -27,7 +27,7 @@ begin
 
 	q <= q_s;
 
--- Register with active-high clock & asynchronous clear
+	-- Register with active-high clock & asynchronous clear
 	process(clk)
 	begin
 		if clk'EVENT AND clk = '1' then

@@ -1,6 +1,6 @@
 --***************************************************************
 --*
---*   Version with 2 counters: 1) slower cnt_rdy for FSM steps ; 
+--*   Version with 2 counters: 1) slower cnt_rdy for FSM steps ;
 --*       2) faster cnt_button_rdy for button control.
 --*
 --***************************************************************
@@ -20,10 +20,10 @@ use IEEE.std_logic_1164.all;
 use IEEE.NUMERIC_STD.all;
 
 
-entity step_counter is 
+entity step_counter is
 	generic
 	(
-	COUNT_MAX	: positive	:= 1000
+	COUNT_MAX	: positive	:= 100
 	);
 
 	port
@@ -61,16 +61,16 @@ begin
 	--*******************************
 	--*	SIGNAL ASSIGNMENTS			*
 	--*******************************
-	
+
 	cnt_rdy	<= 	'1' when (cnt_s = COUNT_MAX) else
-				'0';	
-	cnt_button_rdy	<= 	'1' when (cnt_button_s = (COUNT_MAX/500)) else
-				'0';	
-	
+				'0';
+	cnt_button_rdy	<= 	'1' when (cnt_button_s = (COUNT_MAX/50)) else
+				'0';
+
 	--*******************************
 	--*	PROCESS DEFINITIONS			*
 	--*******************************
-				
+
 	--increment counter each cycle
 	--reset if max reached or clr is set
 	process(clk)
@@ -78,15 +78,15 @@ begin
 		if clk'event and clk = '1' then
 			if(clr = '1') then
 				cnt_s <= to_unsigned(0, cnt_s'length);
-				cnt_button_s <= to_unsigned(0, cnt_button_s'length);				
+				cnt_button_s <= to_unsigned(0, cnt_button_s'length);
 			elsif(cnt_s = COUNT_MAX) then
 				cnt_s <= to_unsigned(0, cnt_s'length);
 				cnt_button_s <= to_unsigned(0, cnt_button_s'length);
-				elsif(cnt_button_s = COUNT_MAX/500) then
+				elsif(cnt_button_s = COUNT_MAX/50) then
 					cnt_button_s <= to_unsigned(0, cnt_button_s'length);
 				else
-					cnt_s <= cnt_s + 1;	
-					cnt_button_s <= cnt_button_s + 1;						
+					cnt_s <= cnt_s + 1;
+					cnt_button_s <= cnt_button_s + 1;
 			end if;
 		end if;
 	end process;

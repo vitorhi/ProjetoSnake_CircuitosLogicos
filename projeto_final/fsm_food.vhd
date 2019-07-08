@@ -22,9 +22,9 @@ entity fsm_food is
 	(
 	clk				: in STD_LOGIC;						--from system
 	res				: in STD_LOGIC;						--from system
+	ofc_of_x		: in STD_LOGIC;
 	fsm_m_start		: in STD_LOGIC;						--from fsm main
 	cmp_body_flag	: in STD_LOGIC;						--from datapath/comparator module
-	ofc_of_x : in std_logic;
 	dp_ctrl 		: out datapath_ctrl_flags;				--to datapath
 	fsm_m_done		: out STD_LOGIC						--to fsm main
 	);
