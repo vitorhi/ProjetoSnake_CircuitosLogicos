@@ -113,7 +113,6 @@ end component;
 signal sys_direction_synched_s		: direction;
 signal sys_step_jumper_synched_s	: STD_LOGIC;
 signal cnt_rdy_s					: STD_LOGIC;
-signal cnt_bt_rdy_s : STD_LOGIC;
 
 signal dp_ctrl_s					: datapath_ctrl_flags;
 signal dp_flags_s					: datapath_flags;
