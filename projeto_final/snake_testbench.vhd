@@ -14,7 +14,7 @@ library IEEE;
 use IEEE.std_logic_1164.all;
 
 
-entity snake_testbench is 
+entity snake_testbench is
 end snake_testbench;
 
 
@@ -119,7 +119,7 @@ begin
 							res				=> res_s,
 							sys_direction	=> sys_direction_s,
 							sys_step_jumper	=> sys_step_jumper_s,
-							
+
 								--TESTPINS
 							test_mem_b_addr	=> test_mem_b_addr_s,
 							test_idle_state	=> test_idle_state_s,
@@ -142,13 +142,13 @@ begin
 							mem_b_addr	=> test_mem_b_addr_s
 							);
 
-							
+
 	--*******************************
 	--*	SIGNAL ASSIGNMENTS			*
 	--*******************************
-	
+
 	--*******************************
 	--*	PROCESS DEFINITIONS			*
 	--*******************************
-	
+
 end arch;
