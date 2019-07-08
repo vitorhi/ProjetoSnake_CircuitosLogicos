@@ -88,7 +88,7 @@ component reg_bank
 	(
 	clk			: in STD_LOGIC;
 	res			: in STD_LOGIC;
-	alu_ofc_result	: in STD_LOGIC_VECTOR(WIDTH-1 downto 0);
+	ofc_address	: in STD_LOGIC_VECTOR(WIDTH-1 downto 0);
 	load_head	: in STD_LOGIC;
 	load_reg2	: in STD_LOGIC;
 	load_fifo	: in STD_LOGIC;
@@ -96,6 +96,7 @@ component reg_bank
 	out_sel		: in RB_SEL;
 	alu_out		: out STD_LOGIC_VECTOR(WIDTH-1 downto 0)
 	);
+
 end component;
 
 component alu
@@ -235,7 +236,7 @@ begin
 								(
 								clk			=> clk,
 								res			=> res,
-								alu_ofc_result	=> ofc_2_rb_s,
+								ofc_address	=> ofc_2_rb_s,
 								load_head	=> ctrl_ctrl.rb_head_en,
 								load_reg2	=> ctrl_ctrl.rb_reg2_en,
 								load_fifo	=> ctrl_ctrl.rb_fifo_en,
@@ -243,8 +244,6 @@ begin
 								out_sel		=> ctrl_ctrl.rb_out_sel,
 								alu_out		=> rb_2_alu_s
 								);
-
-
 	alu_un:	alu generic map
 								(
 								WIDTH	=> WIDTH

@@ -79,12 +79,12 @@ signal aux_xor, aux_and_1, aux_and_2, aux_and_3	: STD_LOGIC;
 
 begin
 
-	XOR_2: xor2 GENERIC MAP (1 ns) PORT MAP (x=>c_in ,y=>aux_xor ,z=>z_out );
-     	XOR_1: xor2 GENERIC MAP (1 ns) PORT MAP (y=>b_in, z=>aux_xor, x=>a_in);
-     	AND_1: and2 GENERIC MAP (1 ns) PORT MAP (y=>b_in, z=>aux_and_1, x=>a_in);
-     	AND_2: and2 GENERIC MAP (1 ns) PORT MAP (a_in ,c_in, aux_and_2 );
-	OR_3: or3 GENERIC MAP (1 ns) PORT MAP (aux_and_1, aux_and_2 ,y=>aux_and_3, z=>c_out );
-	AND_3: and2 GENERIC MAP (1 ns) PORT MAP (x=>b_in ,y=>c_in ,z=>aux_and_3 );
+	XOR_2: xor2 GENERIC MAP (0 ns) PORT MAP (x=>c_in ,y=>aux_xor ,z=>z_out );
+     	XOR_1: xor2 GENERIC MAP (0 ns) PORT MAP (y=>b_in, z=>aux_xor, x=>a_in);
+     	AND_1: and2 GENERIC MAP (0 ns) PORT MAP (y=>b_in, z=>aux_and_1, x=>a_in);
+     	AND_2: and2 GENERIC MAP (0 ns) PORT MAP (a_in ,c_in, aux_and_2 );
+	OR_3: or3 GENERIC MAP (0 ns) PORT MAP (aux_and_1, aux_and_2 ,y=>aux_and_3, z=>c_out );
+	AND_3: and2 GENERIC MAP (0 ns) PORT MAP (x=>b_in ,y=>c_in ,z=>aux_and_3 );
 
 
 end structural;
