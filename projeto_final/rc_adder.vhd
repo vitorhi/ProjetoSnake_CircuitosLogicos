@@ -4,7 +4,7 @@ use IEEE.STD_LOGIC_1164.all;
 entity rc_adder is
 	generic
 	(
-	WIDTH	: natural := 4
+	WIDTH	: natural :=8
 	);
 	port
 	(
@@ -23,13 +23,19 @@ architecture structural of rc_adder is
 				z_out, c_out:out STD_LOGIC);
 	END COMPONENT;
 
-	signal cout_1, cout_2, count_3 :STD_LOGIC;
+	signal cout_1, cout_2, cout_3, cout_4, cout_5, cout_6, cout_7   :STD_LOGIC;
+
 	begin
 
 	ADD1: full_adder_2 PORT MAP (a_in=>a_i(0) ,b_in=>b_i(0) ,c_in=>c_i  , z_out=>z_o(0), c_out=>cout_1 );
 	ADD2: full_adder_2 PORT MAP (a_in=>a_i(1) ,b_in=>b_i(1) ,c_in=>cout_1, z_out=>z_o(1), c_out=>cout_2 );
-	ADD3: full_adder_2 PORT MAP (a_in=>a_i(2) ,b_in=>b_i(2) ,c_in=>cout_2, z_out=>z_o(2), c_out=>count_3 );
-	ADD4: full_adder_2 PORT MAP (a_in=>a_i(3) ,b_in=>b_i(3) ,c_in=>cout_2, z_out=>z_o(3), c_out=>c_o );
+	ADD3: full_adder_2 PORT MAP (a_in=>a_i(2) ,b_in=>b_i(2) ,c_in=>cout_2, z_out=>z_o(2), c_out=>cout_3 );
+	ADD4: full_adder_2 PORT MAP (a_in=>a_i(3) ,b_in=>b_i(3) ,c_in=>cout_3, z_out=>z_o(3), c_out=>cout_4 );
+	ADD5: full_adder_2 PORT MAP (a_in=>a_i(4) ,b_in=>b_i(4) ,c_in=>cout_4 , z_out=>z_o(4), c_out=>cout_5 );
+	ADD6: full_adder_2 PORT MAP (a_in=>a_i(5) ,b_in=>b_i(5) ,c_in=>cout_5, z_out=>z_o(5), c_out=>cout_6 );
+	ADD7: full_adder_2 PORT MAP (a_in=>a_i(6) ,b_in=>b_i(6) ,c_in=>cout_6, z_out=>z_o(6), c_out=>cout_7 );
+	ADD8: full_adder_2 PORT MAP (a_in=>a_i(7) ,b_in=>b_i(7) ,c_in=>cout_7, z_out=>z_o(7), c_out=>c_o );
+
 
 end structural;
 

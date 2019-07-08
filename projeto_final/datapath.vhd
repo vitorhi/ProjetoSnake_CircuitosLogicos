@@ -105,14 +105,14 @@ component alu
 	);
 
 	port
-		(
-		op_first		: in STD_LOGIC_VECTOR(WIDTH-1 downto 0);
-		rb_op			: in STD_LOGIC_VECTOR(WIDTH-1 downto 0);
-		ctrl_x_y		: in STD_LOGIC;
-		ctrl_pass_calc	: in STD_LOGIC;
-		fsm_food_active	: in STD_LOGIC;    -- included to make x mask inactive during random generation of food
-		ofc_result		: out STD_LOGIC_VECTOR(WIDTH-1 downto 0)
-		);
+	(
+	op_first		: in STD_LOGIC_VECTOR(WIDTH-1 downto 0);
+	rb_op			: in STD_LOGIC_VECTOR(WIDTH-1 downto 0);
+	ctrl_x_y		: in STD_LOGIC;
+	ctrl_pass_calc	: in STD_LOGIC;
+	fsm_food_active	: in STD_LOGIC;    -- included to make x mask inactive during random generation of food
+	ofc_result		: out STD_LOGIC_VECTOR(WIDTH-1 downto 0)
+	);
 end component;
 
 component overflow_correction
@@ -166,12 +166,11 @@ end component;
 --***********************************
 --*	INTERNAL SIGNAL DECLARATIONS	*
 --***********************************
-
-signal fsm_food_active_s : STD_LOGIC;
 signal ng_2_alu_s		: STD_LOGIC_VECTOR(WIDTH-1 downto 0);
 signal rb_2_alu_s		: STD_LOGIC_VECTOR(WIDTH-1 downto 0);
 signal alu_2_ofc_s		: STD_LOGIC_VECTOR(WIDTH-1 downto 0);
 signal ofc_2_rb_s		: STD_LOGIC_VECTOR(WIDTH-1 downto 0);
+signal fsm_food_active_s : std_logic;
 
 signal mem_a_en			: STD_LOGIC_VECTOR (0 downto 0);
 signal mem_a_data_w_s	: STD_LOGIC_VECTOR (7 downto 0);
@@ -244,6 +243,8 @@ begin
 								out_sel		=> ctrl_ctrl.rb_out_sel,
 								alu_out		=> rb_2_alu_s
 								);
+
+
 	alu_un:	alu generic map
 								(
 								WIDTH	=> WIDTH
@@ -255,8 +256,8 @@ begin
 								rb_op			=> rb_2_alu_s,
 								ctrl_x_y		=> ctrl_ctrl.alu_x_y,
 								ctrl_pass_calc	=> ctrl_ctrl.alu_pass_calc,
-								ofc_result		=> alu_2_ofc_s,
-								fsm_food_active => fsm_food_active_s
+								fsm_food_active	=> fsm_food_active_s,
+								ofc_result		=> alu_2_ofc_s
 								);
 
 	ofc:	overflow_correction	generic map
