@@ -58,19 +58,19 @@ end full_adder_2;
 architecture structural of full_adder_2 is
 
 	COMPONENT and2
-		GENERIC (t_and: time := 1 ns);
+		GENERIC (t_and: time := 0 ns);
 		PORT (x, y: IN STD_LOGIC;
 			    z   : OUT STD_LOGIC);
 	END COMPONENT;
 
 	COMPONENT xor2
-		GENERIC (t_xor: time := 1 ns);
+		GENERIC (t_xor: time := 0 ns);
 		PORT (x, y: IN STD_LOGIC;
 			    z: OUT STD_LOGIC);
 	END COMPONENT;
 
 	COMPONENT or3
-		GENERIC (t_or: time := 1 ns);
+		GENERIC (t_or: time := 0 ns);
 		PORT (w, x, y: IN STD_LOGIC;
 			    z: OUT STD_LOGIC);
 	END COMPONENT;
@@ -93,7 +93,7 @@ Library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 
 ENTITY and2 IS
-	GENERIC(t_and : time := 1 ns);
+	GENERIC(t_and : time := 0 ns);
 	PORT( x, y: IN STD_LOGIC;
 		    z: OUT STD_LOGIC);
 END and2;
@@ -108,7 +108,7 @@ Library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 
 ENTITY xor2 IS
-	GENERIC(t_xor : time := 1 ns);
+	GENERIC(t_xor : time := 0 ns);
 	PORT( x, y: IN STD_LOGIC;
 		    z: OUT STD_LOGIC);
 END xor2;
@@ -123,7 +123,7 @@ Library IEEE;
 use IEEE.STD_LOGIC_1164.all;
 
 ENTITY or3 IS
-	GENERIC(t_or : time := 1 ns);
+	GENERIC(t_or : time := 0 ns);
 	PORT( w, x, y: IN STD_LOGIC;
 		    z: OUT STD_LOGIC);
 END or3;
